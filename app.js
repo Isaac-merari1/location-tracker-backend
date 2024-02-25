@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
-app.use('/users', userRoutes);
+app.use('/api', userRoutes);
 app.use('/locations', locationRoutes);
 
 sequelize.sync({ alter: true }) // Use { force: true } to drop and recreate tables

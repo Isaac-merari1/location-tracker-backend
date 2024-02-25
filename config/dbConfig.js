@@ -1,8 +1,9 @@
 module.exports = {
     HOST: 'localhost',
+    PORT: 3306,
     USER: 'root',
     PASSWORD: 'password',
-    DB: 'location-tracker-db',
+    DB: 'location_tracker_db',
     dialect: 'mysql',
     pool: {
         max: 5,
@@ -11,3 +12,4 @@ module.exports = {
             idle: 10000
     }
 };
+
