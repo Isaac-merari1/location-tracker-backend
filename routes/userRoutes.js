@@ -87,13 +87,11 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid password' });
         }
         // create payload for JWT Token
-        const currentTime = Date.now();
-        const expirationTime = currentTime + 300000; // 300000 milliseconds = 5 minutes
+         
 
         const payload = {
             time: currentTime, // Current time in milliseconds since Unix epoch
             userId: user.id, // User ID from database
-            expiration: expirationTime // Expiration time in milliseconds since Unix epoch
         };
         // Generate token
         const token = generateToken(payload);

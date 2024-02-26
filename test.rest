@@ -21,7 +21,7 @@ Content-Type: application/json
 
 
 ###
-PUT http://localhost:3000/api/update/1
+PUT http://localhost:3000/api/update/2
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ1MDE1NzUwLCJleHBpcmF0aW9uIjoxNzA4OTQ1MzE1NzUwLCJpYXQiOjE3MDg5NDUwMTV9.r1Ov8L9DxP3Td9hE0QcmFWHoYmVQVQrvFIgxx_SkPRg
 
