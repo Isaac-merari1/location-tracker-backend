@@ -1,0 +1,12 @@
+```This contains all the changes i made```
+1. [x] changed the database name from `location-tracker-db` to `location_tracker_db`
+why i did this is because according to mysql naming convention, it is not advisable to use `-` in the database name, so i changed it to `_`
+
+2. [x] i also updated the `the routes` adding a parent route `api/` to the routes, so that the routes will be more organized and easy to maintain
+
+3. [x] I also added a new file to handle authentication, so that the routes can be protected, and only authenticated users can access the routes
+
+4. [x] I also added a migrations file to handle the creation of the database and the tables, so that the database can be easily created and the tables can be easily created
+but you don't have to worry about running the migrations.it's only specified here for the purpose of this documentation and for my own used
+
+5 [x]. I have a .gitignore file contain my JWT_SECRET, so that it will not be exposed to the public
