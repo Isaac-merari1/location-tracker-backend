@@ -3,8 +3,59 @@ POST http://localhost:3000/api/register
 Content-Type: application/json
 
 {
-    "username": "johnNot",
-    "name": "John Doe",
-    "email": "john11@gmail.com",
+    "username": "isaac23",
+    "name": "isaac castro",
+    "email": "isaac@gmail.com",
     "password": "Okechukwu22@"
 }
+
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username": "isaac23",
+    "email": "isaac@gmail.com",
+    "password": "Okechukwu22@"
+}
+
+
+###
+PUT http://localhost:3000/api/update/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ1MDE1NzUwLCJleHBpcmF0aW9uIjoxNzA4OTQ1MzE1NzUwLCJpYXQiOjE3MDg5NDUwMTV9.r1Ov8L9DxP3Td9hE0QcmFWHoYmVQVQrvFIgxx_SkPRg
+
+{
+    "username": "chukwudi1"
+   
+}
+
+
+###
+DELETE http://localhost:3000/api/delete/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTUwNzkwMjUyLCJleHBpcmF0aW9uIjoxNzA4OTUxMDkwMjUyLCJpYXQiOjE3MDg5NTA3OTB9.rN63FyJcifcxGvPSJLzzNOzNZUAvQu6Di8P-7naK85c
+
+###
+GET http://localhost:3000/api/get/1
+
+
+
+###
+POST http://localhost:3000/api/locations/add/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ2NTQ0ODQ5LCJleHBpcmF0aW9uIjoxNzA4OTQ2ODQ0ODQ5LCJpYXQiOjE3MDg5NDY1NDR9.pJDiKd4ZjScDMQEy3NlHeP4ihZ1rDXdJtNkpiCANKD0
+
+    {
+        "latitude": "80.0",
+        "longitude": "40.0"
+    }
+
+###
+GET http://localhost:3000/api/locations/history/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ2NTQ0ODQ5LCJleHBpcmF0aW9uIjoxNzA4OTQ2ODQ0ODQ5LCJpYXQiOjE3MDg5NDY1NDR9.pJDiKd4ZjScDMQEy3NlHeP4ihZ1rDXdJtNkpiCANKD0
+
+
+###
+GET http://localhost:3000/api/locations/current/1

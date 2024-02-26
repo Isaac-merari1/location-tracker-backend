@@ -32,11 +32,11 @@ const getUserById = async (userId) => {
 
 const updateUser = async (userId, userData) => {
     try {
-        const [, updatedUser] = await User.update(userData, {
-            where: { id: userId },
+        const updatedUser = await User.update(userData, {
+            where: { userId: userId },
             returning: true,
         });
-        return updatedUser[0];
+        return updatedUser;
     } catch (error) {
         console.error('Error updating user by ID:', error);
         throw error;
@@ -45,7 +45,7 @@ const updateUser = async (userId, userData) => {
 
 const deleteUser = async (userId) => {
     try {
-        const deletedRows = await User.destroy({ where: { id: userId } });
+        const deletedRows = await User.destroy({ where: { userId: userId } });
         return deletedRows > 0;
     } catch (error) {
         console.error('Error deleting user by ID:', error);

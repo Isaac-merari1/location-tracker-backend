@@ -20,8 +20,18 @@ const LocationHistory = sequelize.define('LocationHistory', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
+    // Add userId as a foreign key
+    userId: {
+        type: DataTypes.INTEGER, // Assuming userId is an integer
+        allowNull: false,
+        references: {
+            model: 'Users', // Assuming the User model is named 'User'
+            key: 'userId', // Assuming the primary key of the User model is 'userId'
+        },
+    },
 });
 
-LocationHistory.belongsTo(User, { foreignKey: 'userId' });
+// Define the association
+LocationHistory.belongsTo(User, { foreignKey: 'userId', targetKey: 'userId', onDelete: 'CASCADE' });
 
 module.exports = LocationHistory;
