@@ -37,18 +37,18 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTUwNzkwMjUyLCJleHBpcmF0aW9uIjoxNzA4OTUxMDkwMjUyLCJpYXQiOjE3MDg5NTA3OTB9.rN63FyJcifcxGvPSJLzzNOzNZUAvQu6Di8P-7naK85c
 
 ###
-GET http://localhost:3000/api/get/1
+GET http://localhost:3000/api/users
 
 
 
 ###
-POST http://localhost:3000/api/locations/add/1
+POST http://localhost:3000/api/locations/add/2
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ2NTQ0ODQ5LCJleHBpcmF0aW9uIjoxNzA4OTQ2ODQ0ODQ5LCJpYXQiOjE3MDg5NDY1NDR9.pJDiKd4ZjScDMQEy3NlHeP4ihZ1rDXdJtNkpiCANKD0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MDY0NTMwNDI3LCJleHBpcmF0aW9uIjoxNzA5MDY0ODMwNDI3LCJpYXQiOjE3MDkwNjQ1MzB9.W3dlklTzw8rMOLUx0fWOb7IKAd9lG_CN42cgUQIBTJo
 
     {
-        "latitude": "80.0",
-        "longitude": "40.0"
+        "latitude": "70.0",
+        "longitude": "75.0"
     }
 
 ###
@@ -58,4 +58,4 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ2NTQ0ODQ5
 
 
 ###
-GET http://localhost:3000/api/locations/current/1
+GET http://localhost:3000/api/locations/current/2

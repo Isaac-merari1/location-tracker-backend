@@ -121,6 +121,20 @@ router.get('/get/:id',  async (req, res) => {
     }
 });
 
+       
+// Get user by ID
+router.get('/users',  async (req, res) => {
+    try {
+        const user = await UserController.getAllUsers();
+        if (!user) {
+            return res.status(404).json({ error: 'No user in the database' });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ error: 'Server Error' });
+    }
+});
+
 
 // Update user by ID
 router.put('/update/:id', verifyToken, async (req, res) => {

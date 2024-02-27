@@ -13,6 +13,7 @@ const createUser = async (userData) => {
 const getAllUsers = async () => {
     try {
         const users = await User.findAll();
+        
         return users;
     } catch (error) {
         console.error('Error getting users:', error);
