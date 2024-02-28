@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "location_tracker_db",
+    "database": "location_tracker_db", 
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

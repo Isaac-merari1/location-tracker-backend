@@ -3,9 +3,9 @@ POST http://localhost:3000/api/register
 Content-Type: application/json
 
 {
-    "username": "isaac23",
+    "username": "test",
     "name": "isaac castro",
-    "email": "chuks@gmail.com",
+    "email": "test@gmail.com",
     "password": "Okechukwu22@"
 }
 
@@ -14,19 +14,19 @@ POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    "username": "isaac23",
-    "email": "chuks@gmail.com",
+    "username": "test",
+    "email": "test@gmail.com",
     "password": "Okechukwu22@"
 }
 
 
 ###
-PUT http://localhost:3000/api/update/2
+PUT http://localhost:3000/api/update/4
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ1MDE1NzUwLCJleHBpcmF0aW9uIjoxNzA4OTQ1MzE1NzUwLCJpYXQiOjE3MDg5NDUwMTV9.r1Ov8L9DxP3Td9hE0QcmFWHoYmVQVQrvFIgxx_SkPRg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
 
 {
-    "username": "chukwudi1"
+    "username": "new user"
    
 }
 
@@ -42,20 +42,20 @@ GET http://localhost:3000/api/users
 
 
 ###
-POST http://localhost:3000/api/locations/add/2
+POST http://localhost:3000/api/locations/add/4
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MDY0NTMwNDI3LCJleHBpcmF0aW9uIjoxNzA5MDY0ODMwNDI3LCJpYXQiOjE3MDkwNjQ1MzB9.W3dlklTzw8rMOLUx0fWOb7IKAd9lG_CN42cgUQIBTJo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
 
     {
         "latitude": "70.0",
-        "longitude": "75.0"
+        "longitude": "60.0"
     }
 
 ###
-GET http://localhost:3000/api/locations/history/1
+GET http://localhost:3000/api/locations/history/4
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTQ2NTQ0ODQ5LCJleHBpcmF0aW9uIjoxNzA4OTQ2ODQ0ODQ5LCJpYXQiOjE3MDg5NDY1NDR9.pJDiKd4ZjScDMQEy3NlHeP4ihZ1rDXdJtNkpiCANKD0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
 
 
 ###
-GET http://localhost:3000/api/locations/current/2
+GET http://localhost:3000/api/locations/current/4
