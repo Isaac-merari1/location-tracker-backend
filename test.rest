@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "username": "isaac23",
     "name": "isaac castro",
-    "email": "isaac@gmail.com",
+    "email": "chuks@gmail.com",
     "password": "Okechukwu22@"
 }
 
@@ -15,7 +15,7 @@ Content-Type: application/json
 
 {
     "username": "isaac23",
-    "email": "isaac@gmail.com",
+    "email": "chuks@gmail.com",
     "password": "Okechukwu22@"
 }
 

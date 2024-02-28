@@ -71,13 +71,18 @@ router.post('/register', async (req, res) => {
 
 // Login user
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    const email = req.body.email;
+    const password = req.body.password;
+    const currentTime = new Date().getTime();
+    
     try {
+        console.log(req.body);
         const user = await User.findOne({
             where: {
                 email
             }
         });
+        
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
