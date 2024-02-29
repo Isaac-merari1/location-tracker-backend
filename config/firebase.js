@@ -4,8 +4,7 @@ const serviceAccount = require('./path/to/your/serviceAccountKey.json');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    @TODO // Replace with your Firebase project URL
-    databaseURL: 'https://your-project-id.firebaseio.com',
+    databaseURL: 'https://location-tracking-notification.firebaseio.com',
 });
 
 module.exports = admin;
