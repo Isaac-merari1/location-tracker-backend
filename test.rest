@@ -1,0 +1,61 @@
+###
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "username": "test",
+    "name": "isaac castro",
+    "email": "test@gmail.com",
+    "password": "Okechukwu22@"
+}
+
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "username": "test",
+    "email": "test@gmail.com",
+    "password": "Okechukwu22@"
+}
+
+
+###
+PUT http://localhost:3000/api/update/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
+
+{
+    "username": "new user"
+   
+}
+
+
+###
+DELETE http://localhost:3000/api/delete/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTUwNzkwMjUyLCJleHBpcmF0aW9uIjoxNzA4OTUxMDkwMjUyLCJpYXQiOjE3MDg5NTA3OTB9.rN63FyJcifcxGvPSJLzzNOzNZUAvQu6Di8P-7naK85c
+
+###
+GET http://localhost:3000/api/users
+
+
+
+###
+POST http://localhost:3000/api/locations/add/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
+
+    {
+        "latitude": "70.0",
+        "longitude": "60.0"
+    }
+
+###
+GET http://localhost:3000/api/locations/history/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
+
+
+###
+GET http://localhost:3000/api/locations/current/4

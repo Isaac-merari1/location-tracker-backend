@@ -18,10 +18,10 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use('/users', userRoutes);
-app.use('/locations', locationRoutes);
+app.use('/api', userRoutes);
+app.use('/api/locations', locationRoutes);
 
-sequelize.sync({ alter: true }) // Use { force: true } to drop and recreate tables
+sequelize.sync() // Use { force: true } to drop and recreate tables
     .then(() => {
       console.log('Database synced successfully');
       app.listen(PORT, () => {
