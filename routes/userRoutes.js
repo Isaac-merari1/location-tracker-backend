@@ -38,18 +38,22 @@ router.get('/get/:id', async (req, res) => {
 });
 
 // Update user by ID
-router.put('/update/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-        const updatedUser = await UserController.updateUser(id, req.body);
-        if (!updatedUser) {
-            return res.status(404).json({ error: 'User not found' });
-        }
-        res.json(updatedUser);
-    } catch (error) {
-        res.status(500).json({ error: 'Server Error' });
-    }
-});
+router.put('/update/:id', UserController.updateUser)
+//     async (req, res) => {
+//     const { id } = req.params;
+//     console.log(id);
+//
+//     try {
+//         const updatedUser = await UserController.updateUser(res, res);
+//         console.log("updatedUser in router => ", updatedUser);
+//         // if (!updatedUser) {
+//         //     return res.status(404).json({ error: 'User not found' });
+//         // }
+//         res.json(updatedUser);
+//     } catch (error) {
+//         res.status(500).json({ error: 'Server Error' });
+//     }
+// });
 
 // Delete user by ID
 router.delete('/delete/:id', async (req, res) => {
