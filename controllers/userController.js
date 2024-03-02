@@ -13,7 +13,6 @@ const createUser = async (userData) => {
 const getAllUsers = async () => {
     try {
         const users = await User.findAll();
-        
         return users;
     } catch (error) {
         console.error('Error getting users:', error);
@@ -31,16 +30,23 @@ const getUserById = async (userId) => {
     }
 };
 
-const updateUser = async (userId, userData) => {
-    try {
-        const updatedUser = await User.update(userData, {
-            where: { userId: userId },
-            returning: true,
-        });
-        return updatedUser;
+const updateUser = async (req, res, next) => {
+    const { id } = req.params;
+    try{
+        const updatedUser = await User.findByPk(id);
+        if (!updatedUser) {
+            throw Error(`User not found. id: ${id}`);
+        }
+        if (req.body.username) updatedUser.username = req.body.username;
+        if (req.body.email) updatedUser.email = req.body.email;
+        if (req.body.password) updatedUser.password = req.body.password;
+        if (req.body.role) updatedUser.role = req.body.role;
+
+        await updatedUser.save();
+        res.json(updatedUser);
     } catch (error) {
-        console.error('Error updating user by ID:', error);
-        throw error;
+        console.error('Error updating user:', error);
+        next(error);
     }
 };
 
