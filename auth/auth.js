@@ -39,10 +39,7 @@ function verifyToken(req, res, next) {
 }
 
 function generateToken(payload) {
-    const expirationTimeSeconds = 3600; // 1 hour in seconds
-const expirationTime = Math.floor(Date.now() / 1000) + expirationTimeSeconds;
-    payload.exp = expirationTime;
-
+   
     const jwtSecretKey = `${process.env.JWT_SECRET_KEY}`;
     const token = jwt.sign(payload,  jwtSecretKey);
     return token;

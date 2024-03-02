@@ -3,19 +3,21 @@ POST http://localhost:3000/api/register
 Content-Type: application/json
 
 {
-    "username": "test",
+    "username": "isaac",
     "name": "isaac castro",
-    "email": "test@gmail.com",
+    "email": "isaac@gmail.com",
     "password": "Okechukwu22@"
+   
 }
+
 
 ###
 POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    "username": "test",
-    "email": "test@gmail.com",
+    "username": "chukwuma",
+    "email": "isaaccas@gmail.com",
     "password": "Okechukwu22@"
 }
 
@@ -23,24 +25,23 @@ Content-Type: application/json
 ###
 PUT http://localhost:3000/api/update/4
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
 
 {
-    "username": "new user"
+    "username": "isaac"
    
 }
 
 
+
 ###
-DELETE http://localhost:3000/api/delete/1
+DELETE http://localhost:3000/api/delete/7
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA4OTUwNzkwMjUyLCJleHBpcmF0aW9uIjoxNzA4OTUxMDkwMjUyLCJpYXQiOjE3MDg5NTA3OTB9.rN63FyJcifcxGvPSJLzzNOzNZUAvQu6Di8P-7naK85c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc4NzI3NjQxLCJ1c2VySWQiOjcsInJvbGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJjaHVrcyIsImV4cCI6MTcwOTM4MjMyNywiaWF0IjoxNzA5Mzc4NzI3fQ.noIz9ab4VTKn-62SD915iVEBM_0007Glp_GAXg9fkYM
 
 ###
 GET http://localhost:3000/api/users
-
-
-
+Content-Type: application/json
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc4OTA3MjY0LCJ1c2VySWQiOjYsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImNodWtzMSIsImV4cCI6MTcwOTM4MjUwNywiaWF0IjoxNzA5Mzc4OTA3fQ.kPq4qceUFaHeLuVucq9KnR509F6R20ZEGvvyRSF4Rxs
 ###
 POST http://localhost:3000/api/locations/add/4
 Content-Type: application/json
@@ -56,6 +57,17 @@ GET http://localhost:3000/api/locations/history/4
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MTE0NDY5ODk2LCJleHAiOjE3MDkxMTgwNzAsImlhdCI6MTcwOTExNDQ3MH0.22TiV3Q91IQsh49kSLnnwGICLC_ESRwcyxblsGLEAZY
 
-
 ###
-GET http://localhost:3000/api/locations/current/4
+GET http://localhost:3000/api/locations/current/7
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc4NzI3NjQxLCJ1c2VySWQiOjcsInJvbGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJjaHVrcyIsImV4cCI6MTcwOTM4MjMyNywiaWF0IjoxNzA5Mzc4NzI3fQ.noIz9ab4VTKn-62SD915iVEBM_0007Glp_GAXg9fkYM
+
+#Get user by id
+###
+GET http://localhost:3000/api/get/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MzcwODA1NzQyLCJyb2xlIjoidXNlciIsInVzZXJuYW1lIjoiY2h1a3d1ZGkxIiwiZXhwIjoxNzA5Mzc0NDA1LCJpYXQiOjE3MDkzNzA4MDV9.mhvvvm3iazWNkYY8W3oXZaYMRRinR44hqAApx-qWKyo
+
+
+
+# superuser token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc0NzEyMjg1LCJyb2xlIjoic3VwZXJ1c2VyIiwidXNlcm5hbWUiOiJjaHVrd3VtYTEyIiwiZXhwIjoxNzA5Mzc4MzEyLCJpYXQiOjE3MDkzNzQ3MTJ9.yTza0uqAP6NydjHS9nI6BJQmqE2SR5h9U86AnIRUjM0

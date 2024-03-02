@@ -92,11 +92,16 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid password' });
         }
         // create payload for JWT Token
-
+        const expirationTimeSeconds = 3600; // 1 hour in seconds
+        const expirationTime = Math.floor(Date.now() / 1000) + expirationTimeSeconds;
+        
 
         const payload = {
             time: currentTime, // Current time in milliseconds since Unix epoch
-            userId: user.id, // User ID from database
+            userId: user.userId,
+            role: user.role,
+            username: user.username,
+            exp: expirationTime
         };
         // Generate token
         const token = generateToken(payload);
@@ -113,9 +118,17 @@ router.post('/login', async (req, res) => {
 
 
 // Get user by ID
-router.get('/get/:id',  async (req, res) => {
+router.get('/get/:id', verifyToken, async (req, res) => {
     const { id } = req.params;
     try {
+        const { role } = req.user;
+        if (role === 'superuser') {
+            const user = await UserController.getUserById(id);
+            if (!user) {
+                return res.status(404).json({ error: 'User not found' });
+            }
+            res.json(user);
+        }
         const user = await UserController.getUserById(id);
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
@@ -128,13 +141,23 @@ router.get('/get/:id',  async (req, res) => {
 
 
 // Get user by ID
-router.get('/users',  async (req, res) => {
+router.get('/users', verifyToken, async (req, res) => {
     try {
-        const user = await UserController.getAllUsers();
-        if (!user) {
+        // extract user from token
+        
+        if (!req.user) {
             return res.status(404).json({ error: 'No user in the database' });
         }
-        res.json(user);
+        const { role } = req.user;
+        if (role !== 'superuser') {
+            console.log(role);
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+        const allUser = await UserController.getAllUsers();
+        if (!allUser) {
+            return res.status(404).json({ error: 'No user in the database' });
+        }
+        res.json(allUser);
     } catch (error) {
         res.status(500).json({ error: 'Server Error' });
     }
@@ -183,15 +206,43 @@ router.put('/update/:id', UserController.updateUser)
 // });
 
 // Delete user by ID
-router.delete('/delete/:id',verifyToken, async (req, res) => {
+router.delete('/delete/:id', verifyToken, async (req, res) => {
     const { id } = req.params;
+     // Assuming the user ID is included in the token payload
+    
     try {
-        const deleted = await UserController.deleteUser(id);
-        if (!deleted) {
+        const { userId} = req.user;
+        const { role } = req.user;
+        const userToDelete = await UserController.getUserById(userId);
+        console.log(userToDelete.userId, req.user);
+
+        // Check if the user to delete exists
+        if (!userToDelete) {
             return res.status(404).json({ error: 'User not found' });
         }
-        res.json({ message: 'User deleted'});
+
+        // Check if the authenticated user is either a superuser or the owner of the account
+        if (role === 'superuser') {
+            const deleted = await UserController.deleteUser(id);
+            if (!deleted) {
+                return res.status(404).json({ error: 'Failed to delete user' });
+            }
+            return res.json({ message: `User with id ${id} deleted` });
+        }
+        if (userToDelete.userId.toString() === id) {
+            console.log(userToDelete.userId);
+            const deleted = await UserController.deleteUser(id);
+            if (!deleted) {
+                return res.status(404).json({ error: 'Failed to delete user' });
+            }
+            return res.json({ message: `User with id ${id} deleted` });
+        }
+        
+        else {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
     } catch (error) {
+        console.error(error);
         res.status(500).json({ error: 'Server Error' });
     }
 });
