@@ -194,7 +194,6 @@ router.put('/update/:id', verifyToken, async (req, res) => {
         
         // Update the user
         const updatedUser = await UserController.updateUser(req, res, id, userUpdate);
-        console.log(updatedUser);
         
         if (updatedUser) {
             return res.status(200).json({
