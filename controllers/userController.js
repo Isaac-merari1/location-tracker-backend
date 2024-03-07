@@ -32,21 +32,23 @@ const getUserById = async (userId) => {
 
 const updateUser = async (req, res, next) => {
     const { id } = req.params;
-    try{
+    try {
         const updatedUser = await User.findByPk(id);
+        console.log('updatedUser:', updatedUser);
         if (!updatedUser) {
             throw Error(`User not found. id: ${id}`);
         }
+        console.log('email:', updatedUser.email);
         if (req.body.username) updatedUser.username = req.body.username;
         if (req.body.email) updatedUser.email = req.body.email;
         if (req.body.password) updatedUser.password = req.body.password;
         if (req.body.role) updatedUser.role = req.body.role;
 
         await updatedUser.save();
-        res.json(updatedUser);
+        return updatedUser; // Return the updated user object
     } catch (error) {
         console.error('Error updating user:', error);
-        next(error);
+        throw error; // Re-throw the error to be caught in the calling route handler
     }
 };
 

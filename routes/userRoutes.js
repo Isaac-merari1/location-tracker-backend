@@ -165,45 +165,51 @@ router.get('/users', verifyToken, async (req, res) => {
 
 
 // Update user by ID
-router.put('/update/:id', UserController.updateUser)
+// router.put('/update/:id', UserController.updateUser)
 
-// router.put('/update/:id', verifyToken, async (req, res) => {
-//     const { id } = req.params;
-//     const userUpdate = req.body;
-//     try {
-//         //check if user exists
-//         const existingUser = await UserController.getUserById(id);
-//         if (!existingUser) {
-//             return res.status(404).json({ error: 'User not found' });
-//         }
-//
-//         if (userUpdate.password !== undefined){
-//             if (!isValidPassword(userUpdate.password)) {
-//                 return res.status(400).json({ error: 'Password should contain at least 8 characters, one letter, one number, and one special character.' });
-//             }
-//             // Generate salt and hash the new password
-//             const salt = await bcrypt.genSalt(10);
-//             userUpdate.password = await bcrypt.hash(userUpdate.password, salt);
-//         }
-//         if (userUpdate.email !== undefined) {
-//             if (!isValidEmail(userUpdate.email)) {
-//                 return res.status(400).json({error: "Invalid email format" });
-//             }
-//         }
-//
-//         const updatedUser = await UserController.updateUser(id, userUpdate);
-//         if (updatedUser.length === 2) {
-//             return res.status(200).json(
-//                 {
-//                     message: 'User updated successfully',
-//                     user: updatedUser[1][0]
-//                 });
-//         }
-//         res.status(404).json({ error: 'user not found' });
-//     } catch (error) {
-//         res.status(500).json({ error: 'Server Error' });
-//     }
-// });
+router.put('/update/:id', verifyToken, async (req, res) => {
+    const { id } = req.params;
+    const userUpdate = req.body;
+    try {
+        // Check if user exists
+        const existingUser = await UserController.getUserById(id);
+        if (!existingUser) {
+            return res.status(404).json({ error: 'User not found' });         
+        }
+
+        if (userUpdate.password !== undefined) {
+            if (!isValidPassword(userUpdate.password)) {
+                return res.status(400).json({ error: 'Password should contain at least 8 characters, one letter, one number, and one special character.' });
+            }
+            // Generate salt and hash the new password
+            const salt = await bcrypt.genSalt(10);
+            userUpdate.password = await bcrypt.hash(userUpdate.password, salt);
+        }
+        
+        if (userUpdate.email !== undefined) {
+            if (!isValidEmail(userUpdate.email)) {
+                return res.status(400).json({ error: "Invalid email format" });
+            }
+        }
+        
+        // Update the user
+        const updatedUser = await UserController.updateUser(req, res, id, userUpdate);
+        console.log(updatedUser);
+        
+        if (updatedUser) {
+            return res.status(200).json({
+                message: 'User updated successfully',
+                user: updatedUser
+            });
+        } else {
+            return res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error updating user:', error);
+        return res.status(500).json({ error: 'Server Error check' });
+    }
+});
+
 
 // Delete user by ID
 router.delete('/delete/:id', verifyToken, async (req, res) => {

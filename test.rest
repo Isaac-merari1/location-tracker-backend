@@ -16,21 +16,22 @@ POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    "username": "chukwuma",
-    "email": "isaaccas@gmail.com",
+    "username": "isaac ",
+    "email": "test@gmail.com",
     "password": "Okechukwu22@"
 }
+
 
 
 ###
 PUT http://localhost:3000/api/update/4
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5ODE4ODQzMjI1LCJ1c2VySWQiOjQsInJvbGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJpc2FhYyIsImV4cCI6MTcwOTgyMjQ0MywiaWF0IjoxNzA5ODE4ODQzfQ.oRJgszVEHjpqlJosDVgNsPQs9Iset3-7ED8UfWG6yk8
 
 {
-    "username": "isaac"
-   
+    
+    "email": "isaacokechukwu22@gmail.com"
 }
-
 
 
 ###
@@ -64,10 +65,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc4NzI3NjQx
 
 #Get user by id
 ###
-GET http://localhost:3000/api/get/2
+GET http://localhost:3000/api/users
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5MzcwODA1NzQyLCJyb2xlIjoidXNlciIsInVzZXJuYW1lIjoiY2h1a3d1ZGkxIiwiZXhwIjoxNzA5Mzc0NDA1LCJpYXQiOjE3MDkzNzA4MDV9.mhvvvm3iazWNkYY8W3oXZaYMRRinR44hqAApx-qWKyo
-
-
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5ODE4NjY1NjM0LCJ1c2VySWQiOjYsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImNodWtzMSIsImV4cCI6MTcwOTgyMjI2NSwiaWF0IjoxNzA5ODE4NjY1fQ.oIneZEeeSom4DEVZ6dHfxGrVWxz2opBIeGmOtgst4sk
 # superuser token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5Mzc0NzEyMjg1LCJyb2xlIjoic3VwZXJ1c2VyIiwidXNlcm5hbWUiOiJjaHVrd3VtYTEyIiwiZXhwIjoxNzA5Mzc4MzEyLCJpYXQiOjE3MDkzNzQ3MTJ9.yTza0uqAP6NydjHS9nI6BJQmqE2SR5h9U86AnIRUjM0
+
+# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzA5ODE4MTY4NTQ3LCJ1c2VySWQiOjYsInJvbGUiOiJzdXBlcnVzZXIiLCJ1c2VybmFtZSI6ImNodWtzMSIsImV4cCI6MTcwOTgyMTc2OCwiaWF0IjoxNzA5ODE4MTY4fQ.Vea_t7jUAJ5JnPFR_V9hi8O3qaY-_sXi32aOKSPs3bM
