@@ -43,6 +43,7 @@ const updateUser = async (req, res, next) => {
         if (req.body.email) updatedUser.email = req.body.email;
         if (req.body.password) updatedUser.password = req.body.password;
         if (req.body.role) updatedUser.role = req.body.role;
+        if (req.body.phoneNumber) updateUser.phoneNumber = req.body.phoneNumber;
 
         await updatedUser.save();
         return updatedUser; // Return the updated user object

@@ -43,10 +43,10 @@ router.post('/register', async (req, res) => {
             }
         });
         if (email !== null) {
-            return res.status(400).json({ error: 'User with that email already exists' });
+            return res.status(400).json({ message: 'User with that email already exists' });
         }
         if (username !== null) {
-            return res.status(400).json({ error: 'Username already exists' });
+            return res.status(400).json({ message: 'Username already exists' });
         }
 
         // Create the user
@@ -84,12 +84,12 @@ router.post('/login', async (req, res) => {
         });
 
         if (!user) {
-            return res.status(404).json({ error: 'User not found' });
+            return res.status(400).json({ message: 'User not found with the provided email' });
         }
         // Check if password is correct
         const validPassword = await bcrypt.compare(password, user.password);
         if (!validPassword) {
-            return res.status(401).json({ error: 'Invalid password' });
+            return res.status(400).json({ message: 'Invalid password' });
         }
         // create payload for JWT Token
         const expirationTimeSeconds = 3600; // 1 hour in seconds
